@@ -133,7 +133,7 @@ Parameters:
 
   AllowSshCidr:
     Type: String
-    Default: '0.0.0.0/0'
+    Default: '127.0.0.1/32'
     Description: >
       CIDR block allowed to connect on port 22 (SSH).
       Best practice: set this to YOUR public IP with /32 (e.g. 203.0.113.5/32).
@@ -438,7 +438,7 @@ Resources:
     Type: AWS::EC2::EIPAssociation
     Properties:
       InstanceId: !Ref MinecraftInstance
-      AllocationId: !Ref MinecraftEIP.AllocationId
+      AllocationId: !Ref MinecraftEIP
 
 
   # ===========================================================================
